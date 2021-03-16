@@ -6,6 +6,14 @@ const UseStateCounter = () => {
   const reset = () => {
     setCount(0);
   };
+
+  const complexIncrease = () => {
+    setTimeout(() => {
+      setCount((prevState) => {
+        return prevState + 1
+      })
+    },2000)
+  }
   return (
     <>
       <h2>Regular counter</h2>
@@ -18,14 +26,6 @@ const UseStateCounter = () => {
       >
         Descrease
       </button>
-      <button
-        className='btn'
-        onClick={() => {
-          setCount(count - 2);
-        }}
-      >
-        Descrease by 2
-      </button>
       <button className='btn' onClick={reset}>
         Reset
       </button>
@@ -37,21 +37,14 @@ const UseStateCounter = () => {
       >
         Increase
       </button>
+      <h2>Complex counter</h2>
+      <h1>{count}</h1>
+     
       <button
         className='btn'
-        onClick={() => {
-          setCount(count + 2);
-        }}
+        onClick={complexIncrease}
       >
-        Increase by 2
-      </button>
-      <button
-        className='btn'
-        onClick={() => {
-          setCount(count + 5);
-        }}
-      >
-        Increase by 5
+        Increase later
       </button>
     </>
   );
